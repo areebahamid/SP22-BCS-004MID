@@ -9,7 +9,7 @@ const UpdatesScreen = () => {
         // Data to be stored in AsyncStorage
         let myArray = [{ key: 0, title: "areeba" }, { key: 1, title: "ahmad" }];
 
-        // Storing data in AsyncStorage asynchronously
+        // Storing data in AsyncStorage asynchronously 
         const storeData = async () => {
             try {
                 await AsyncStorage.setItem('myName', JSON.stringify(myArray));

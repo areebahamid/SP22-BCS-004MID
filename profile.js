@@ -38,7 +38,7 @@ const Profile = () => {
 
 const SearchScreen = () => (
   <View style={styles.tabScreen}>
-    <Text>Search Screen</Text>
+    <Text>Searc Screen</Text>
   </View>
 );
 
