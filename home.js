@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { signInAnonymously } from 'firebase/auth'; 
+import { auth } from './firebase';
 
 const Home = () => {
     const navigation = useNavigation();
@@ -11,6 +13,18 @@ const Home = () => {
 
     const signing = () => {
         navigation.navigate('Signup');
+    }
+
+    const handleguest = async() => {
+        try {
+          
+            const userCredential = await signInAnonymously(auth);
+            const user = userCredential.user;
+            console.log('Anonymous user signed in:', user.uid);
+            navigation.navigate("StackDrawer");
+        } catch (error) {
+            console.error('Error signing in anonymously:', error.message);
+        }
     }
 
     return (
@@ -27,6 +41,11 @@ const Home = () => {
                 style={[styles.button, { backgroundColor: 'plum' }]} 
                 onPress={signing}>
                 <Text style={styles.buttonText}>Sign Up</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={[styles.button, { backgroundColor: 'plum' }]} 
+                onPress={handleguest}>
+                <Text style={styles.buttonText}>Guest User</Text>
             </TouchableOpacity>
         </View>
     )

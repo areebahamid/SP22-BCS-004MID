@@ -33,13 +33,14 @@ const Signup = ({ navigation }) => {
       setEmail(value);
     };
     const toProfile = () => {
-        navigation.navigate('Profile');
+        navigation.navigate('StackDrawer');
     };
     const handleSignup = async () => {
         try{  await createUserWithEmailAndPassword(auth,email,password)
             .then((userCredss)=>{
                 const user=userCredss.user
                 console.warn(user)
+                toProfile();
 
             })
         
@@ -90,9 +91,6 @@ const Signup = ({ navigation }) => {
             />
             <TouchableOpacity style={[styles.button, { backgroundColor: 'plum' }]} onPress={handleSignup}>
                 <Text style={styles.buttonText}>SIGNUP</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.button, { backgroundColor: 'plum' }]} onPress={toProfile}>
-                <Text style={styles.buttonText}>NEXT</Text>
             </TouchableOpacity>
         </View>
     );

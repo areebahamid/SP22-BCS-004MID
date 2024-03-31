@@ -5,6 +5,7 @@ import { auth } from './firebase';
 import {  signInWithEmailAndPassword,  } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 
+
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +19,7 @@ const Login = ({ navigation }) => {
   }
 
   const toProfile = () => {
-    navigation.navigate('Profile');
+    navigation.navigate('StackDrawer');
   }
 
   const handleLogin = async () => {
@@ -27,6 +28,8 @@ const Login = ({ navigation }) => {
       .then((userCredss)=>{
           const user=userCredss.user
           console.warn(user)
+          toProfile()
+          
       })
   } catch (error) {
       if (error.code === 'auth/user-not-found') {
@@ -58,13 +61,8 @@ const Login = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={[styles.butt, { backgroundColor: 'plum' }]}
-        onPress={toProfile}>
-        <Text >LOGIN</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.butt, { backgroundColor: 'plum' }]}
         onPress={handleLogin}>
-        <Text >CHECK</Text>
+        <Text >LOGIN</Text>
       </TouchableOpacity>
     </View>
   )

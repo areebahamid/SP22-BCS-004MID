@@ -1,10 +1,8 @@
-import React from 'react';
+/*import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from './homescreen';
 import { UpdatesScreen } from './updatesscreen';
-import { SettingsScreen } from './SettingsScreen';
-import { SearchScreen } from './SearchScreen';
 const Tab = createBottomTabNavigator();
 
 const Profile = () => {
@@ -38,10 +36,17 @@ const Profile = () => {
 
 
 
+const SearchScreen = () => (
+  <View style={styles.tabScreen}>
+    <Text>Searc Screen</Text>
+  </View>
+);
 
-
-
-
+const SettingsScreen = () => (
+  <View style={styles.tabScreen}>
+    <Text>Settings Screen</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   tabScreen: {
@@ -51,4 +56,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export { Profile};
+export { Profile,SearchScreen,SettingsScreen };
+*/
